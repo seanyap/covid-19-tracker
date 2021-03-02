@@ -3,7 +3,16 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <h1>Let's goooo!</h1>
+      {/* Components */}
+      {/* Title and Select input dropdown */}
+      <h1>Covid-19-Tracker</h1>
+
+      {/* 3 Infoboxes */}
+
+      {/* Table */}
+      {/* Graph */}
+
+      {/* Map */}
     </div>
   );
 }
