@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FormControl, Select, MenuItem } from "@material-ui/core";
+import InfoBox from './InfoBox';
 import './App.css';
 
 function App() {
@@ -62,9 +63,18 @@ function App() {
           </Select>
         </FormControl>
       </div>
-      {/* 3 Infoboxes */}
 
+      {/* Infoboxes */}
+      <div className="app__stats">
+        {/* 3 of the same React components but with different React PROPS passed into it to make each component unique */}
+        {/* React components are SELF CLOSING */}
+        <InfoBox title="Coronavirus cases" cases={1000} total={2000} />
+        <InfoBox title="Recovered" cases={1000} total={2000} />
+        <InfoBox title="Deaths" cases={1000} total={2000} />
+      </div>
+          
       {/* Table */}
+
       {/* Graph */}
 
       {/* Map */}
