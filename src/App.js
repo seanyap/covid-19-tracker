@@ -6,18 +6,22 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
+// React componenets start with Capital letter
 import InfoBox from "./InfoBox";
 import Map from "./Map";
+import Table from "./Table";
 import "./App.css";
+import { sortData } from "./utils"; // export returns an object; inside this object contains multiple keys to the function you wrote
 
 function App() {
   // React useState hook --> state management
-  // countries is an array that stores a list of objects which contain mappings of name -> country AND value -> country-iso2
+  // countries is an array that stores a list of objects which contain mappings of (name -> country) AND (value -> country-iso2)
   const [countries, setCountries] = useState([]);
   // keep track of current selected country from dropdown list; default worldwide
   const [country, setCountry] = useState("worldwide");
   // data based of current country
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   // init code
   useEffect(() => {
@@ -35,13 +39,16 @@ function App() {
       await fetch("https://disease.sh/v3/covid-19/countries")
         .then((response) => response.json()) // convert res obj to json type
         .then((data) => {
+          // an array of objects
           const countries = data.map((country) => ({
             name: country.country, // United States
             value: country.countryInfo.iso2, // US
           }));
 
+          const sortedData = sortData(data);
           // call function to change state instead of using assignment operator
           setCountries(countries);
+          setTableData(sortedData);
         });
     };
 
@@ -123,10 +130,12 @@ function App() {
       </div>
       <Card className="app__right">
         <CardContent>
-          <h3>Live Cases by Country</h3>
-          <h3>Worldwide new cases</h3>
           {/* Table */}
+          <h3>Live Cases by Country</h3>
+          <Table countries={tableData} />
+
           {/* Graph */}
+          <h3>Worldwide new cases</h3>
         </CardContent>
       </Card>
     </div>
