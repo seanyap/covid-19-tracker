@@ -6,9 +6,14 @@ Process that I took to build this app
 
 3. Clean up the starter code
 
-4. Build the components mockup and pass in example data placeholder
-    - Style the code with CSS
+3. Research for libraries to use
+    - Material-UI for user interface
+    - Leaflet for map
+    - Chart.js for graph 
+
+4. Build the components mockup and render with example data placeholder
     - Use UI library like Material-UI
+    - Style the component with CSS
 
 5. Pull in data from APIs to populate the placeholder in the components
     - Understanding which API endpoints to use
