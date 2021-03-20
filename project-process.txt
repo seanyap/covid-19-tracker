@@ -1,0 +1,17 @@
+Process that I took to build this app
+
+1. Create a visual wireframe of the app 
+
+2. Create React app
+
+3. Clean up the starter code
+
+4. Build the components mockup and pass in example data placeholder
+    - Style the code with CSS
+    - Use UI library like Material-UI
+
+5. Pull in data from APIs to populate the placeholder in the components
+    - Understanding which API endpoints to use
+    - Pull in data using fetch() and process the response to .json()
+    - Test the data by console logging it
+    - Notice the KEYS in the object 
