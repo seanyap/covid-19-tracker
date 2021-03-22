@@ -1,6 +1,6 @@
 Process that I took to build this app
 
-1. Create a visual wireframe of the app 
+1. Create a visual wireframe of the app (using draw.io)
 
 2. Create React app
 
@@ -9,11 +9,22 @@ Process that I took to build this app
 3. Research for libraries to use
     - Material-UI for user interface
     - Leaflet for map
-    - Chart.js for graph 
+    - React Chart.js for graph 
+    - numeral for numbers formatting
 
-4. Build the components mockup and render with example data placeholder
+4. Build the components mockup and render with example data placeholder (structure)
     - Use UI library like Material-UI
     - Style the component with CSS
+
+5. Create Header
+
+6. Create Info Boxes 
+
+7. Create Table
+
+8. Create Chart 
+
+9. Create Map
 
 5. Pull in data from APIs to populate the placeholder in the components
     - Understanding which API endpoints to use
