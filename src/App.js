@@ -10,9 +10,11 @@ import {
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from "./Table";
+import LineGraph from "./LineGraph";
 import "./App.css";
 import { sortData } from "./utils"; // export returns an object; inside this object contains multiple keys to the function you wrote
 
+// App is a React component as well which is rendered by index.js
 function App() {
   // React useState hook --> state management
   // countries is an array that stores a list of objects which contain mappings of (name -> country) AND (value -> country-iso2)
@@ -136,6 +138,7 @@ function App() {
 
           {/* Graph */}
           <h3>Worldwide new cases</h3>
+          <LineGraph />
         </CardContent>
       </Card>
     </div>
