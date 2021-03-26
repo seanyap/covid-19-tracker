@@ -8,11 +8,12 @@ import {
 } from "@material-ui/core";
 // React componenets start with Capital letter
 import InfoBox from "./InfoBox";
-import Map from "./Map";
+import WorldMap from "./WorldMap";
 import Table from "./Table";
 import LineGraph from "./LineGraph";
 import "./App.css";
 import { sortData } from "./utils"; // export returns an object; inside this object contains multiple keys to the function you wrote
+import "leaflet/dist/leaflet.css";
 
 // App is a React component as well which is rendered by index.js
 function App() {
@@ -24,6 +25,8 @@ function App() {
   // data based of current country
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
 
   // init code
   useEffect(() => {
@@ -128,7 +131,7 @@ function App() {
         </div>
 
         {/* Map */}
-        <Map />
+        <WorldMap center={mapCenter} zoom={mapZoom} />
       </div>
       <Card className="app__right">
         <CardContent>
