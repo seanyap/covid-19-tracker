@@ -25,7 +25,8 @@ function App() {
   // data based of current country
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapCenter, setMapCenter] = useState([4.80746, -40.4796]);
+  // const [mapCenter, setMapCenter] = useState([24.25, -76]);
   const [mapZoom, setMapZoom] = useState(3);
 
   // init code
@@ -76,9 +77,11 @@ function App() {
       .then((data) => {
         setCountry(countryCode);
         setCountryInfo(data); // all of the data from the current country response
+
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(4);
       });
   };
-  console.log(countryInfo);
 
   return (
     <div className="app">
