@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"; // to use jsx
 import "./Map.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 import ChangeView from "./ChangeView";
