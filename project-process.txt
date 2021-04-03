@@ -16,18 +16,19 @@ Process that I took to build this app
     - Use UI library like Material-UI
     - Style the component with CSS
 
-5. Create Header
-
-6. Create Info Boxes 
-
-7. Create Table
-
-8. Create Chart 
-
-9. Create Map
-
 5. Pull in data from APIs to populate the placeholder in the components
     - Understanding which API endpoints to use
     - Pull in data using fetch() and process the response to .json()
     - Test the data by console logging it
     - Notice the KEYS in the object 
+
+6. Create Header
+
+7. Create Info Boxes 
+
+8. Create Table
+
+9. Create Chart 
+
+10. Create Map
+
