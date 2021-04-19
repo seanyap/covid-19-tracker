@@ -25,7 +25,7 @@ function App() {
   // data based of current country
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState([4.80746, -40.4796]);
+  const [mapCenter, setMapCenter] = useState([25.662357, -25.4796]);
   // const [mapCenter, setMapCenter] = useState([24.25, -76]);
   const [mapZoom, setMapZoom] = useState(3);
 
@@ -79,7 +79,7 @@ function App() {
         setCountryInfo(data); // all of the data from the current country response
 
         if (countryCode === "worldwide") {
-          setMapCenter([4.80746, -40.4796]);
+          setMapCenter([25.662357, -25.4796]);
           setMapZoom(3);
         } else {
           setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
