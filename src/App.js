@@ -78,8 +78,13 @@ function App() {
         setCountry(countryCode);
         setCountryInfo(data); // all of the data from the current country response
 
-        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-        setMapZoom(4);
+        if (countryCode === "worldwide") {
+          setMapCenter([4.80746, -40.4796]);
+          setMapZoom(3);
+        } else {
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+          setMapZoom(4);
+        }
       });
   };
 
