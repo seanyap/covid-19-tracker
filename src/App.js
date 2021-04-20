@@ -8,26 +8,26 @@ import {
 } from "@material-ui/core";
 // React componenets start with Capital letter
 import InfoBox from "./InfoBox";
-import WorldMap from "./WorldMap";
+import Map from "./Map";
 import Table from "./Table";
 import LineGraph from "./LineGraph";
 import "./App.css";
-import { sortData } from "./utils"; // export returns an object; inside this object contains multiple keys to the function you wrote
+import { sortData, prettyPrintStat } from "./utils"; // export returns an object; inside this object contains multiple keys to the function you wrote
 import "leaflet/dist/leaflet.css";
 
 // App is a React component as well which is rendered by index.js
 function App() {
   // React useState hook --> state management
-  // countries is an array that stores a list of objects which contain mappings of (name -> country) AND (value -> country-iso2)
-  const [countries, setCountries] = useState([]);
-  // keep track of current selected country from dropdown list; default worldwide
-  const [country, setCountry] = useState("worldwide");
-  // data based of current country
-  const [countryInfo, setCountryInfo] = useState({});
+
+  const [countries, setCountries] = useState([]); // countries is an array that stores a list of objects which contain mappings of (name -> country) AND (value -> country-iso2)
+
+  const [country, setCountry] = useState("worldwide"); // keep track of current selected country from dropdown list; default worldwide
+
+  const [countryInfo, setCountryInfo] = useState({}); // data based of current country
   const [tableData, setTableData] = useState([]);
   const [mapCenter, setMapCenter] = useState([25.662357, -25.4796]);
-  // const [mapCenter, setMapCenter] = useState([24.25, -76]);
   const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
   // init code
   useEffect(() => {
@@ -45,7 +45,7 @@ function App() {
       await fetch("https://disease.sh/v3/covid-19/countries")
         .then((response) => response.json()) // convert res obj to json type
         .then((data) => {
-          // an array of objects
+          // an array of country objects: 2 mappings: name and value
           const countries = data.map((country) => ({
             name: country.country, // United States
             value: country.countryInfo.iso2, // US
@@ -55,6 +55,7 @@ function App() {
           // call function to change state instead of using assignment operator
           setCountries(countries);
           setTableData(sortedData);
+          setMapCountries(data);
         });
     };
 
@@ -123,23 +124,23 @@ function App() {
           {/* React components are SELF CLOSING */}
           <InfoBox
             title="Coronavirus cases"
-            cases={countryInfo.todayCases}
-            total={countryInfo.cases}
+            cases={prettyPrintStat(countryInfo.todayCases)}
+            total={prettyPrintStat(countryInfo.cases)}
           />
           <InfoBox
             title="Recovered"
-            cases={countryInfo.todayRecovered}
-            total={countryInfo.recovered}
+            cases={prettyPrintStat(countryInfo.todayRecovered)}
+            total={prettyPrintStat(countryInfo.recovered)}
           />
           <InfoBox
             title="Deaths"
-            cases={countryInfo.todayDeaths}
-            total={countryInfo.deaths}
+            cases={prettyPrintStat(countryInfo.todayDeaths)}
+            total={prettyPrintStat(countryInfo.deaths)}
           />
         </div>
 
         {/* Map */}
-        <WorldMap center={mapCenter} zoom={mapZoom} />
+        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
       </div>
       <Card className="app__right">
         <CardContent>
