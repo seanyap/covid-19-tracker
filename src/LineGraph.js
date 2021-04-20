@@ -62,7 +62,7 @@ const casesTypeColors = {
   },
 };
 
-function LineGraph({ casesType = "cases" }) {
+function LineGraph({ casesType = "cases", ...props }) {
   // state
   const [data, setData] = useState({});
 
@@ -96,7 +96,7 @@ function LineGraph({ casesType = "cases" }) {
   }, [casesType]);
 
   return (
-    <div>
+    <div className={props.className}>
       {/* data? is optional chaining feature. handles error and returns undefined if data does not exist. the original way to do this would be data && data.length > 0 */}
       {data?.length > 0 && (
         <Line
