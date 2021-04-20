@@ -18,8 +18,17 @@ body {
   margin: 0 auto;
 }
 
+.app__dropdown {
+  background-color: white;
+}
+
 .app__left {
   flex: 0.95;
+}
+
+.app__header > h1 {
+  color: #fc3c3c;
+  font-size: 2rem;
 }
 
 .app__header {
@@ -32,6 +41,26 @@ body {
 .app__stats {
   display: flex;
   justify-content: space-between;
+}
+
+/* flex takes up the entire container width and height */
+.app__right {
+  display: flex;
+}
+
+.app__right .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.app__graph {
+  flex-grow: 1;
+}
+
+.app__graphTitle {
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 990px) {
