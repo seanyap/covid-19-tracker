@@ -1,4 +1,5 @@
 import React from "react";
+import numeral from "numeral";
 import "./Table.css";
 
 // destructure the props(an object) and get countries key
@@ -10,7 +11,9 @@ function Table({ countries }) {
       {countries.map(({ country, cases }) => (
         <tr>
           <td>{country}</td>
-          <td>{cases}</td>
+          <td>
+            <strong>{numeral(cases).format("0,0")}</strong>
+          </td>
         </tr>
       ))}
     </div>
