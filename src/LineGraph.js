@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 
+// customize configuration according to the options available on chartjs documentation
 const options = {
   // dont want legend to display
   legend: {
