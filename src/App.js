@@ -28,6 +28,7 @@ function App() {
   const [mapCenter, setMapCenter] = useState([25.662357, -25.4796]);
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
   // init code
   useEffect(() => {
@@ -121,18 +122,22 @@ function App() {
         {/* Infoboxes */}
         <div className="app__stats">
           {/* 3 of the same React components but with different React PROPS passed into it to make each component unique */}
+          {/* we defines the props name and how many props we want */}
           {/* React components are SELF CLOSING */}
           <InfoBox
+            onClick={(e) => setCasesType("cases")}
             title="Coronavirus cases"
             cases={prettyPrintStat(countryInfo.todayCases)}
             total={prettyPrintStat(countryInfo.cases)}
           />
           <InfoBox
+            onClick={(e) => setCasesType("recovered")}
             title="Recovered"
             cases={prettyPrintStat(countryInfo.todayRecovered)}
             total={prettyPrintStat(countryInfo.recovered)}
           />
           <InfoBox
+            onClick={(e) => setCasesType("deaths")}
             title="Deaths"
             cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={prettyPrintStat(countryInfo.deaths)}
@@ -140,7 +145,12 @@ function App() {
         </div>
 
         {/* Map */}
-        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom} />
+        <Map
+          casesType={casesType}
+          countries={mapCountries}
+          center={mapCenter}
+          zoom={mapZoom}
+        />
       </div>
       <Card className="app__right">
         <CardContent>
@@ -148,9 +158,9 @@ function App() {
           <h3>Live Cases by Country</h3>
           <Table countries={tableData} />
 
-          {/* Graph */}
-          <h3>Worldwide new cases</h3>
-          <LineGraph />
+          {/* Line Graph */}
+          <h3>Worldwide new {casesType}</h3>
+          <LineGraph casesType={casesType} />
         </CardContent>
       </Card>
     </div>
