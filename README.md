@@ -1,9 +1,9 @@
 # Covid-19 Tracker
 
-Currently learning React and JavaScript while building this project. 
+Developed a React app that visualize Covid-19 stats on a live map! 
 
-My goal is to learn the technical concepts and then reinforce my learnings through building this app.
+Goals for building this app:
+- learned React concepts recently, so wanted to reinforce my learning through building an app
 
 I have also included comments in my code to explain my thought process 
 
-Follow me if you are interested to see my progress 😃
